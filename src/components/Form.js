@@ -19,7 +19,7 @@ function Form(props) {
     return (
         <div className="form">
             <div>
-                <h3 >Add Your Task!</h3>
+                <h3 className="form-head">Add Your Task!</h3>
             </div>
             <div className="real-form">
                 <div className="task-input-name">
