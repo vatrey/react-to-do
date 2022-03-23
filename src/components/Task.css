@@ -1,0 +1,114 @@
+.task {
+    border: 1px solid #000;
+    border-radius: 15px;
+    background: #e8e8e8;
+    display: flex;
+    flex-direction: row;
+    padding: 0 5% 0 5%;
+    margin-bottom: 5%; 
+}
+
+.task-name {
+    width: 28%;
+    margin: auto;
+    text-align: center;
+    word-wrap: break-word;
+    justify-content: center;
+    text-align: center;
+}
+
+.task-duration {
+    display: flex;
+    width: 10%;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.task-status {
+    display: flex;
+    width: 20%;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.remove-btn {
+    width: 20%;
+    background-color: #0095ff;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    margin: 3%;
+    box-shadow: rgba(255, 255, 255, .4) 0 1px 0 0 inset;
+    box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    line-height: 1.15385;
+    outline: none;
+    padding: 8px .8em;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: baseline;
+    white-space: nowrap;
+}
+
+.remove-btn:hover,
+.remove-btn:focus {
+  background-color: #07c;
+}
+
+.remove-btn:focus {
+  box-shadow: 0 0 0 4px rgba(0, 149, 255, .15);
+}
+
+.remove-btn:active {
+  background-color: #0064bd;
+  box-shadow: none;
+}
+
+.done-btn {
+    width: 20%;
+    background-color: #0095ff;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    margin: 3%;
+    box-shadow: rgba(255, 255, 255, .4) 0 1px 0 0 inset;
+    box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    line-height: 1.15385;
+    outline: none;
+    padding: 8px .8em;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: baseline;
+    white-space: nowrap;
+}
+
+.done-btn:disabled {
+    background-color: #cccccc;
+}
+
+.done-btn:hover:enabled,
+.done-btn:focus {
+  background-color: #07c;
+}
+
+.done-btn:focus {
+  box-shadow: 0 0 0 4px rgba(0, 149, 255, .15);
+}
+
+.done-btn:active:enabled {
+  background-color: #0064bd;
+  box-shadow: none;
+}
