@@ -17,7 +17,7 @@ function Task(props) {
             <button className="remove-btn" onClick={() => removeHandler(props.id)}>Remove</button>
             {props.status === "Progress" ? 
                 (<button className="done-btn" onClick={() => markDoneHandler(props.id)}>Mark Done</button>) : 
-                (<button className="done-btn" disabled>Done</button>)}
+                (<button className="done-btn cursor-disabled" disabled>Done</button>)}
         </div>
     );
 }

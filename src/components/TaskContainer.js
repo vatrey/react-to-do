@@ -1,13 +1,22 @@
+import { useNavigate } from "react-router-dom";
+import React, { useState, useEffect } from 'react';
 import Form from "./Form";
 import Task from "./Task";
-import React, { useState } from 'react';
 import "./TaskContainer.css"
 
 function TaskContainer() {
+
     const [taskList, updateTaskList] = useState([
         {id: 1, name: "Task1", duration: 10, status: "Progress"},
         {id: 2, name: "Task2", duration: 20, status: "Progress"}
     ]);
+
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        let currStatus = localStorage.getItem("loginStatus");
+        if(currStatus == "false" || currStatus == null) navigate("/");
+    });
 
     let deleteHandler = (id) => {
         let newArray = taskList.filter((t) => t.id !== id);
@@ -18,6 +27,11 @@ function TaskContainer() {
         let newArray = [...taskList];
         newArray.find(t => t.id === id).status = "Done";
         updateTaskList(newArray);
+    }
+
+    let logoutHandler = () => {
+        localStorage.setItem("loginStatus", false);
+        navigate("/");
     }
 
     let addHandler = (name, duration) => {
@@ -47,6 +61,7 @@ function TaskContainer() {
 
     return (
         <div className="task-container">
+            <button className="logout-btn" onClick={logoutHandler}>logout</button>
             <Form addTask={addHandler}/>
             {iterate}
         </div>
