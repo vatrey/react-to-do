@@ -1,4 +1,5 @@
-import './Task.css'
+import './Task.css';
+import ListContext from '../store/context';
 function Task(props) {
 
     let removeHandler = (id) => {
@@ -10,15 +11,27 @@ function Task(props) {
     }
 
     return (
-        <div className="task">
-            <p className="task-name">{props.name}</p>
-            <p className="task-duration">{props.duration} min</p>
-            <p className="task-status">{props.status}</p>
-            <button className="remove-btn" onClick={() => removeHandler(props.id)}>Remove</button>
-            {props.status === "Progress" ? 
-                (<button className="done-btn" onClick={() => markDoneHandler(props.id)}>Mark Done</button>) : 
-                (<button className="done-btn cursor-disabled" disabled>Done</button>)}
-        </div>
+        <ListContext.Consumer >
+            {(ctx) => {
+                let iterate = ctx.taskList.map((ele, index) => (
+                    <div className="task" key={index}>
+                        <p className="task-name">{ele.name}</p>
+                        <p className="task-duration">{ele.duration} min</p>
+                        <p className="task-status">{ele.status}</p>
+                        <button className="remove-btn" onClick={() => removeHandler(ele.id)}>Remove</button>
+                        {ele.status === "Progress" ?
+                            (<button className="done-btn" onClick={() => markDoneHandler(ele.id)}>Mark Done</button>) :
+                            (<button className="done-btn cursor-disabled" disabled>Done</button>)}
+                    </div>
+                ));
+                console.log(ctx.taskList);
+                return (
+                    <div>
+                        {iterate}
+                    </div>
+                );
+            }}
+        </ListContext.Consumer>
     );
 }
 export default Task;
